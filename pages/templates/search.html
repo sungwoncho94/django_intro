@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Search</title>
+</head>
+<body>
+  {% comment %} 사용자가 검색한 결과를 받는 페이지 {% endcomment %}
+  <h1>Search Page</h1>
+
+  <form action="/result/">
+    {% comment %} /의 유무는 파일과 폴더정도의 차이임 {% endcomment %}
+    카테고리 : <input type="text" name="category"><br>
+    검색 키워드 : <input type="text" name="query">
+    
+    <button type="submit">검색하기</button>
+  </form>
+</body>
+</html>

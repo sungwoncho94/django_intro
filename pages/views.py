@@ -112,3 +112,41 @@ def lotto(request):
         'my_lotto': my_lotto,
     }
     return render(request, 'lotto.html', context)
+
+
+def search(request):
+    return render(request, 'search.html')
+
+
+def result(request):
+    query = request.GET.get('query')
+    category = request.GET.get('category')
+    context = {
+        'query': query,
+        'category': category,
+    }
+    return render(request, 'result.html', context)
+
+
+def lottoinput(request):
+    # 번호 입력할 수 있는 페이지만 제공하면 됨.
+    return render(request, 'lottoinput.html')
+
+
+def lottoresult(request):
+    lottonumbers = list(map(int, (request.GET.get('lottonumbers').split())))
+    real_lotto = [21, 25, 30, 32, 40, 42]
+
+    cnt = 0
+
+    for num in lottonumbers:
+        if num in real_lotto:
+            cnt += 1
+    result = cnt
+
+    context = {
+        'lottonumbers': lottonumbers,
+        'real_lotto': real_lotto,
+        'result': result,
+    }
+    return render(request, 'lottoresult.html', context)

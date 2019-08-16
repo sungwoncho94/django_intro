@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lotto result</title>
+</head>
+<body>
+  <h1>Result</h1>
+  <p>460회 당첨 번호 : {{ real_lotto }}</p>
+  <p>나의 로또 번호 : {{ lottonumbers }}</p>
+
+  <p>맞은 개수 : {{ result }} 개</p>
+
+  {% comment %} {% for num in lottonumbers %}
+  {% if num in real_lotto %} {% endcomment %}
+</body>
+</html>
