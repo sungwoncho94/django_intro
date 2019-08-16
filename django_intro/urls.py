@@ -19,12 +19,14 @@ from pages import views
 
 urlpatterns = [
     # path('사용자가 접속하는 경로', )
+    path('static_example/', views.static_example),
+
     path('lottoinput/', views.lottoinput),
     path('lottoresult/', views.lottoresult),
 
     path('search/', views.search),
     path('result/', views.result),
-    
+
     path('lotto/', views.lotto),
     path('isitbirthday/', views.isitbirthday),
     path('student/<str:name>/', views.student),
