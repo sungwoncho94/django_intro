@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template Language</title>
+</head>
+<body>
+  <h1>Template Language</h1>
+  <hr>
+  <h2>1. 반복문</h2>
+
+  {% comment %} {{ }} : context를 치환시킴 {% endcomment %}
+  {% comment %} {% %} : 치환시키지 않고 context를 사용 {% endcomment %}
+  {% for menu in menus %}
+  <p>{{ menu }}</p>
+  {% comment %} 위에서 새롭게 만드는 변수를 밑에서 치환시키겠다.   {{ }} 실제 html에서 표현되는 변수.  {% %} 로직이 작성되는 공간 {% endcomment %}
+  {% endfor %}
+  {% comment %} 명시적으로 for문이 끝났음을 표시해줘야한다 {% endcomment %}
+  <hr>
+
+  {% for menu in menus %}
+  <p>{{ forloop.counter }}. {{ menu }}</p>
+  {% comment %} 
+  {{ forloop }} = DTL for 문 안에서 자동으로 생기는 객체
+  {% endcomment %}
+  {% endfor %}
+  <hr>
+
+  {% for user in empty_list %}
+  <p>{{ user }}</p>
+  {% empty %}
+  <p>현재 가입한 유저가 없습니다.</p>
+  {% endfor %}
+  <hr>
+
+  <h2>2. 조건문</h2>
+  {% if '짜장면2' in menus %}
+    <p>짜장면에는 고춧가루지!!</p>
+  {% else %}
+    <p>메뉴에 짜장면이 없다니!!</p>
+  {% endif %}
+  <hr>
+
+  {% for menu in menus %}
+    <p>- {{ forloop.counter }}번째 도는 중...</p>
+    {% if forloop.first %}
+    {% comment %} 처음 반복인지를 물어보는 것 {% endcomment %}
+    <p>{{ menu }} + 고춧가루</p>
+    {% else %}
+    <p>{{ menu }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr>
+
+  <h2>3. length filter</h2>
+  {% for message in  messages %}
+    {% if message|length >= 6 %}
+      <p>{{message}}는 긴 단어 과일이네!</p>
+    {% else %}
+      <p>{{message}}는 {{message|length}}글자로 비교적 짧아!</p>
+    {% endif %}
+  {% endfor %}
+  <hr>
+
+  <h2>4. lorem ipsum</h2>
+  {% lorem %}
+  {% comment %} {{lorem}} = 사용자가 넘겨준 텍스트중에서 로렘이 있는지 없는지 찾는 것 {% endcomment %}
+  <hr>
+
+  <h2>5. 글자 수 제한 (truncate)</h2>
+  <p>{{ my_sentence|truncatewords:2 }}</p>
+  <p>{{ my_sentence|truncatechars:5 }}</p> <!-- 5번째 글자는 포함X-->
+  <p>{{ my_sentence|truncatechars:10 }}</p>
+  <hr>
+
+  <h2>6. 글자 관련 필터</h2>
+  <p>{{ 'abc'|length }}</p>
+  <p>{{ 'ABC'|lower }}</p>
+  <p>{{ my_sentence|title }}</p>
+  <P>{{ menus|random }}</P>
+  <hr>
+
+  <h2>7. 연산</h2>
+  <p>{{ 4|add:6 }}</p>
+  <hr>
+
+  {% comment %} 
+  {% now %}가 내장되어 있음.
+  {% endcomment %}
+  <h2>8. 날짜 표현</h2>
+  <p>{{ datetimenow }}</p>
+  <p>{% now "DATE_TIME_FORMAT" %}</p>
+  <p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+  <P>{% now "DATE_FORMAT" %}</P>
+  <P>{% now "TIME_FORMAT" %}</P>
+  <P>{% now "SHORT_DATE_FORMAT" %}</P>
+  <P>{% now "Y년 m월 d일 (D) h:i" %}</P>
+  <hr>
+  {% now "Y" as current_year %}
+  <p>Copyright {{ current_year }}</p>
+  <hr>
+  {{ datetimenow|date:"DATE_FORMAT" }}
+  <hr>
+
+  <h2>9. 기타</h2>
+  <p>{{ "google.com"|urlize }}</p>
+  <a href="https://google.com">구글</a>
+</body>
+</html>

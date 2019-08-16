@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Is It Birthday??</title>
+</head>
+<body>
+  {% comment %} 월, 일을 각각 변수에 담는다 {% endcomment %}
+  {% now "m" as month %}
+  {% now "d" as day %}
+
+  {% if month == '10' and day == '31'%}
+    <h1>YESSSSSSSSSSSSSSSSSS!!</h1>
+  {% else %}
+    <h1>NOOOOOOOOOOOOOOOOOO!!</h1>
+  {% endif %}
+
+</body>
+</html>
