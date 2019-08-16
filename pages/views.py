@@ -119,6 +119,7 @@ def search(request):
 
 
 def result(request):
+
     query = request.GET.get('query')
     category = request.GET.get('category')
     context = {
@@ -154,3 +155,15 @@ def lottoresult(request):
 
 def static_example(request):
     return render(request, 'static_example.html')
+
+
+def pushnum(request):
+    return render(request, 'pushnum.html')
+
+
+def pullnum(request):
+    num = request.GET.get('pushnumber')
+    context = {
+        'num': num
+    }
+    return render(request, 'pullnum.html', context)
