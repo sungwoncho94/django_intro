@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Local apps - 우리가 만드는 앱, 가장 위에 위치
-    'pages',
     'utilities',
+    'pages',
 
     # Third party apps - 중간에 위치
 
