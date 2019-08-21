@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Local apps - 우리가 만드는 앱, 가장 위에 위치
-    'utilities',
     'pages',
+    'utilities',
 
     # Third party apps - 중간에 위치
 
@@ -61,8 +61,10 @@ ROOT_URLCONF = 'django_intro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'django_intro', 'templates',)],
+        # 우리가 만든 templates를 등록
         'APP_DIRS': True,
+        # 어플리케이션에서 만들어지는 templates폴더를 인식하고 사용한다
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
