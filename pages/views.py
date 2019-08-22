@@ -167,3 +167,11 @@ def pullnum(request):
         'num': num
     }
     return render(request, 'pages/pullnum.html', context)
+
+
+def workshopday15_1(request):
+    return render(request, 'pages/workshopday15_1.html')
+
+
+def workshopday15_2(request):
+    return render(request, 'pages/workshopday15_2.html')

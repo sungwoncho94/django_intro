@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
 
-
+# /pages/_______
 urlpatterns = [
+    path('workshopday15_2/', views.workshopday15_2),
+    path('workshopday15_1/', views.workshopday15_1),
     path('num/pull/', views.pullnum),
     path('num/push/', views.pushnum),
     path('static_example/', views.static_example),
